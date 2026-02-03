@@ -344,7 +344,7 @@ function App() {
 
       {/* Footer Info */}
       <footer className={cn(
-        "fixed bottom-8 z-40 px-6 py-3 rounded-2xl bg-accent/10 backdrop-blur-md border border-accent/20 transition-all duration-500",
+        "fixed bottom-8 z-40 px-6 py-3 rounded-2xl bg-accent/10 backdrop-blur-md border border-accent/20 transition-all duration-500 hidden md:block",
         isImmersive ? "opacity-0 translate-y-4 pointer-events-none" : "opacity-100 translate-y-0"
       )}>
         <div className="flex items-center gap-8 text-[11px] font-medium text-muted-foreground uppercase tracking-widest">
