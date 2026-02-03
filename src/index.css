@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 222 47% 11%;
+  --foreground: 213 31% 91%;
+  --primary: 217.2 91.2% 59.8%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 222.2 47.4% 11.2%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 223 47% 11%;
+  --muted-foreground: 215.4 16.3% 56.9%;
+  --accent: 216 34% 17%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+}
+
+.theme-minimal {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+}
+
+.theme-forest {
+  --background: 142 76% 5%;
+  --foreground: 142 20% 90%;
+  --primary: 142 76% 36%;
+  --primary-foreground: 142 20% 5%;
+  --secondary: 142 20% 10%;
+  --secondary-foreground: 142 20% 90%;
+  --muted: 142 20% 10%;
+  --muted-foreground: 142 10% 60%;
+  --accent: 142 30% 20%;
+  --accent-foreground: 142 20% 95%;
+}
+
+.theme-starry {
+  --background: 230 50% 5%;
+  --foreground: 210 40% 98%;
+  --primary: 263.4 70% 50.4%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 230 50% 10%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 230 50% 10%;
+  --muted-foreground: 215 20% 65%;
+  --accent: 263.4 40% 20%;
+  --accent-foreground: 210 40% 98%;
+}
+
+body {
+  @apply bg-background text-foreground transition-colors duration-500;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  @apply border-accent;
+}
+
+.theme-rain {
+  --background: 210 30% 12%;
+  --foreground: 210 20% 98%;
+  --primary: 199 89% 48%;
+  --accent: 210 20% 18%;
+}
+
+.theme-cafe {
+  --background: 30 20% 12%;
+  --foreground: 40 20% 95%;
+  --primary: 30 80% 45%;
+  --accent: 30 20% 20%;
+}
+
+.starry-bg {
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: twinkle var(--duration) infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Rain Effect */
+.rain-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.drop {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 1px;
+  height: 50px;
+  bottom: 100%;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+/* Cafe Steam Effect */
+.steam-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.steam-particle {
+  position: absolute;
+  bottom: -20px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: rise linear infinite;
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-100vh) scale(2);
+    opacity: 0;
+  }
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-accent rounded-full;
+}
